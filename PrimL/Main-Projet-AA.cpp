@@ -2,10 +2,23 @@
 //
 
 #include <iostream>
+#include "../Algo-Prim/OurList.h"
+
+using std::cout;
+using std::endl;
 
 int main()
 {
     std::cout << "Hello World!\n";
+
+    OurList<int> list;
+
+    list.insert_back(3);
+    list.insert_back(4);
+    list.insert_back(10);
+
+    cout << list[2];
+
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

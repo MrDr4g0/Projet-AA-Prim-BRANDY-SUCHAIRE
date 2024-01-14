@@ -24,6 +24,7 @@
     <ProjectGuid>{68f3b914-e1aa-4f24-a532-b959578ea9ef}</ProjectGuid>
     <RootNamespace>MainProjetAA</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>PrimL</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
