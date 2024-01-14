@@ -12,7 +12,7 @@ public:
 	OurList() : data(nullptr), size(0),capacity(0) {};
 
 	OurList(size_t initialCapacity) : size(0), capacity(initialCapacity) {
-		data = new data[capacity];
+		data = new T[capacity];
 	}
 
 	OurList(const OurList& other) : size(other.size),capacity(other.capacity) {

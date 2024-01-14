@@ -1,5 +1,6 @@
 #pragma once
 #include "OurList.h"
+
 struct edge
 {
 	unsigned int n_vertex; // neighboring vertex
@@ -7,15 +8,15 @@ struct edge
 
 };
 
-class Vertex
+class VertexL
 {
-	unsigned int val;
+	unsigned int v_number;
 	OurList<edge> neighbors;
 
 public:
 
-	Vertex(unsigned int number);
-	Vertex(unsigned int number, const OurList<edge>& initialNeighbors);
+	VertexL(unsigned int number);
+	VertexL(unsigned int number, const OurList<edge>& initialNeighbors);
 
 };
 

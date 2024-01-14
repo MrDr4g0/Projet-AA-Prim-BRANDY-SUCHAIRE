@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{68f3b914-e1aa-4f24-a532-b959578ea9ef}</ProjectGuid>
-    <RootNamespace>MainProjetAA</RootNamespace>
+    <ProjectGuid>{ddbcca9d-a332-43b2-98e9-33e318390eda}</ProjectGuid>
+    <RootNamespace>PrimL</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -129,7 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main-Projet-AA.cpp" />
+    <ClCompile Include="PrimL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algo-Prim\Algo-Prim.vcxproj">

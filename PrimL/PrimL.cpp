@@ -1,23 +1,16 @@
-// Main-Projet-AA.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
+// PrimL.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
 #include <iostream>
-#include "../Algo-Prim/OurList.h"
-
-using std::cout;
-using std::endl;
+#include "../Algo-Prim/VertexL.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
 
-    OurList<int> list;
+    OurList<OurList<int>> matrix(8);
 
-    list.insert_back(3);
-    list.insert_back(4);
-    list.insert_back(10);
-
-    cout << list[2];
+    matrix[0].insert_back(OurList<int>());
 
 }
 

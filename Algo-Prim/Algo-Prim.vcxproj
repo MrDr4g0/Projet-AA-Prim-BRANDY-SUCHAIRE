@@ -143,19 +143,21 @@
   <ItemGroup>
     <ClInclude Include="AlgoPrim.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="VertexL.h" />
     <ClInclude Include="OurList.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="VertexM.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AlgoPrim.cpp" />
-    <ClCompile Include="Vertex.cpp" />
+    <ClCompile Include="VertexL.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="VertexM.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
