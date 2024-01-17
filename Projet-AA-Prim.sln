@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Algo-Prim", "Algo-Prim\Algo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrimL", "PrimL\PrimL.vcxproj", "{DDBCCA9D-A332-43B2-98E9-33E318390EDA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrimM", "PrimM\PrimM.vcxproj", "{D20026CE-BD41-476F-9233-6F1F0EAFDB5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{DDBCCA9D-A332-43B2-98E9-33E318390EDA}.Release|x64.Build.0 = Release|x64
 		{DDBCCA9D-A332-43B2-98E9-33E318390EDA}.Release|x86.ActiveCfg = Release|Win32
 		{DDBCCA9D-A332-43B2-98E9-33E318390EDA}.Release|x86.Build.0 = Release|Win32
+		{D20026CE-BD41-476F-9233-6F1F0EAFDB5C}.Debug|x64.ActiveCfg = Debug|x64
+		{D20026CE-BD41-476F-9233-6F1F0EAFDB5C}.Debug|x64.Build.0 = Debug|x64
+		{D20026CE-BD41-476F-9233-6F1F0EAFDB5C}.Debug|x86.ActiveCfg = Debug|Win32
+		{D20026CE-BD41-476F-9233-6F1F0EAFDB5C}.Debug|x86.Build.0 = Debug|Win32
+		{D20026CE-BD41-476F-9233-6F1F0EAFDB5C}.Release|x64.ActiveCfg = Release|x64
+		{D20026CE-BD41-476F-9233-6F1F0EAFDB5C}.Release|x64.Build.0 = Release|x64
+		{D20026CE-BD41-476F-9233-6F1F0EAFDB5C}.Release|x86.ActiveCfg = Release|Win32
+		{D20026CE-BD41-476F-9233-6F1F0EAFDB5C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

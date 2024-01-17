@@ -18,6 +18,6 @@ public:
 	void convertFileGraphM(std::string file);
 	void convertFileGraphL(std::string file);
 
-
+	OurList<VertexM> getGraphM();
 
 };

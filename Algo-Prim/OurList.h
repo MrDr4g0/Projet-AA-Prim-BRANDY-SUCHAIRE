@@ -15,6 +15,13 @@ public:
 		data = new T[capacity];
 	}
 
+	OurList(size_t initialCapacity, const T& element) : size(initialCapacity), capacity(initialCapacity) {
+		data = new T[capacity];
+		for (size_t i = 0; i < initialCapacity; ++i) {
+			data[i] = element;
+		}
+	}
+
 	OurList(const OurList& other) : size(other.size),capacity(other.capacity) {
 		data = new T[capacity];
 		for (size_t i = 0; i < size; ++i) {
@@ -44,6 +51,13 @@ public:
 	T& operator[](size_t idx) {
 		if (idx >= size) {
 			throw std::out_of_range("OurList ERROR : Index given out of bounds ");
+		}
+		return data[idx];
+	}
+
+	const T& operator[](size_t idx) const {
+		if (idx >= size) {
+			throw std::out_of_range("OurList ERROR: Index given out of bounds");
 		}
 		return data[idx];
 	}

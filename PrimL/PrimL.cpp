@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "../Algo-Prim/VertexL.h"
+#include "../Algo-Prim/AlgoPrim.h"
 
 using std::cout;
 using std::endl;
@@ -11,25 +12,35 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    OurList<OurList<unsigned int>> matrix(4);
+    //OurList<OurList<unsigned int>> matrix(4);
 
-    matrix.insert_back(OurList<unsigned int>(4));
-    matrix.insert_back(OurList<unsigned int>(4));
-    matrix.insert_back(OurList<unsigned int>(4));
-    matrix.insert_back(OurList<unsigned int>(4));
-    
-    for (size_t i = 0; i < matrix.getSize(); ++i) {
-        // Accessing individual containers
-        OurList<unsigned int>& innerList = matrix[i];
+    //matrix.insert_back(OurList<unsigned int>(4));
+    //matrix.insert_back(OurList<unsigned int>(4));
+    //matrix.insert_back(OurList<unsigned int>(4));
+    //matrix.insert_back(OurList<unsigned int>(4));
+    //
+    //for (size_t i = 0; i < matrix.getSize(); ++i) {
+    //    // Accessing individual containers
+    //    OurList<unsigned int>& innerList = matrix[i];
 
-        // Adding elements to inner containers
-        innerList.insert_back(1);
-        innerList.insert_back(2);
-        innerList.insert_back(5);
-        innerList.insert_back(std::numeric_limits<unsigned int>::max());
+    //    // Adding elements to inner containers
+    //    innerList.insert_back(1);
+    //    innerList.insert_back(2);
+    //    innerList.insert_back(5);
+    //    innerList.insert_back(std::numeric_limits<unsigned int>::max());
+    //}
+
+    //cout << matrix[0][3];
+
+    AlgoPrim a;
+    a.convertFileGraphM("../graph.txt");
+
+    OurList<VertexM> graphM = a.getGraphM();
+
+    for (size_t i = 0; i < graphM.getSize(); ++i) {
+        cout << graphM[i] << endl;
     }
 
-    cout << matrix[0][3];
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
