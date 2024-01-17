@@ -5,7 +5,6 @@
 #include "framework.h"
 #include "AlgoPrim.h"
 
-// TODO: Il s'agit d'un exemple de fonction de bibliothèque
-void fnAlgoPrim()
+AlgoPrim::AlgoPrim() : graphL(0), graphM(0),originL(0),originM(0)
 {
-}
+};

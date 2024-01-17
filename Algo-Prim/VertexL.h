@@ -15,6 +15,7 @@ class VertexL
 
 public:
 
+	VertexL();
 	VertexL(unsigned int number);
 	VertexL(unsigned int number, const OurList<edge>& initialNeighbors);
 

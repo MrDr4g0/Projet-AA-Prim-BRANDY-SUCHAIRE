@@ -7,6 +7,7 @@ class VertexM
 
 public:
 
+	VertexM();
 	VertexM(unsigned int number, const OurList<unsigned int>& n_distance_list);
 
 };
