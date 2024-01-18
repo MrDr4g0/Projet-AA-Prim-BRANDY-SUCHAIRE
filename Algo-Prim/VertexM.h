@@ -13,6 +13,8 @@ public:
 	VertexM(unsigned int number);
 	VertexM(unsigned int number, const OurList<unsigned int>& n_distance_list);
 
+	OurList<unsigned int> getNeigborsDistance() const;
+
 	friend std::ostream& operator<<(std::ostream& os, const VertexM& v);
 
 };

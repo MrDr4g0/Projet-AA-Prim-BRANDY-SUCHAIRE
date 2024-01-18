@@ -87,5 +87,23 @@ public:
 		size++;
 	}
 
+
+	void remove(size_t position) {
+
+		if (position >= size) {
+			throw std::out_of_range("OurList ERROR: Index given out of bounds");
+		}
+
+		// Swap with the last element
+		data[position] = data[size - 1];
+
+		size--;
+
+	}
+
+	bool empty() const {
+		return (size == 0);
+	}
+
 };
 

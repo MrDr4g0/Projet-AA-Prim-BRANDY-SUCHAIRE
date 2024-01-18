@@ -32,10 +32,15 @@ int main()
 
     //cout << matrix[0][3];
 
+    OurList<VertexM> graphM(2);
+
+    graphM.empty() ? cout << "oui" << endl : cout << "non" << endl;
+
     AlgoPrim a;
     a.convertFileGraphM("../graph.txt");
 
-    OurList<VertexM> graphM = a.getGraphM();
+    graphM = a.getGraphM();
+    graphM.empty() ? cout << "oui" << endl : cout << "non" << endl;
 
     for (size_t i = 0; i < graphM.getSize(); ++i) {
         cout << graphM[i] << endl;

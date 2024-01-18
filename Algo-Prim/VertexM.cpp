@@ -13,6 +13,11 @@ VertexM::VertexM(unsigned int number, const OurList<unsigned int>& n_distance) :
 {
 }
 
+OurList<unsigned int> VertexM::getNeigborsDistance() const
+{
+	return neighbors_distance;
+}
+
 std::ostream& operator<<(std::ostream& os, const VertexM& v)
 {
 	unsigned int bob = 4;
