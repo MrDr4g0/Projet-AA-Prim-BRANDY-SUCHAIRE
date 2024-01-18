@@ -1,7 +1,11 @@
 #include "pch.h"
 #include "VertexM.h"
 
-VertexM::VertexM(unsigned int number) : v_number(number), neighbors_distance(0)
+VertexM::VertexM()
+{
+}
+
+VertexM::VertexM(unsigned int number) : v_number(0)
 {
 }
 

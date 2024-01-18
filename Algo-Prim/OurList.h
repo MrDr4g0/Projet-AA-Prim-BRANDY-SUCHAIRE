@@ -72,6 +72,5 @@ public:
 		data[size] = element;
 		size++;
 	}
-
 };
 

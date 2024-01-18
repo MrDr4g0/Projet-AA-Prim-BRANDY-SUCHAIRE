@@ -8,8 +8,8 @@ class AlgoPrim {
 	OurList<VertexL> graphL;
 	OurList<VertexM> graphM;
 
-	VertexL originL;
-	VertexM originM;
+	unsigned int originL;
+	unsigned int originM;
 
 public:
 
