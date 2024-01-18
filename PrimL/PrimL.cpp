@@ -40,12 +40,16 @@ int main()
     a.convertFileGraphM("../graph.txt");
 
     graphM = a.getGraphM();
+    a.setOriginM(2);
     graphM.empty() ? cout << "oui" << endl : cout << "non" << endl;
 
+    /*
     for (size_t i = 0; i < graphM.getSize(); ++i) {
         cout << graphM[i] << endl;
     }
+    */
 
+    a.executePrimForM();
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
