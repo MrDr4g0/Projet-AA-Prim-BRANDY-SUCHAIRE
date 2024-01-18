@@ -33,11 +33,6 @@ OurList<edge> VertexL::getNeighbors()
 	return v_neighbors;
 }
 
-int VertexL::getValue()
-{
-	return v_number;
-}
-
 std::ostream& operator<<(std::ostream& out, const VertexL& obj)
 {
 	out << obj.v_number << std::endl;

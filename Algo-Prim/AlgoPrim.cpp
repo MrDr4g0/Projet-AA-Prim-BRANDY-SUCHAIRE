@@ -47,7 +47,7 @@ void AlgoPrim::convertFileGraphL(std::string file)
                 }
 
                 VertexL neighbor(neighborVertex);
-                vertex.AddNeighbor(neighbor.getValue(), distance);
+                vertex.AddNeighbor(neighborVertex, distance);
             }
 
             // Add Vertex

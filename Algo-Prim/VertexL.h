@@ -23,7 +23,6 @@ public:
 	VertexL(unsigned int number, const OurList<edge>& initialNeighbors);
 	void AddNeighbor(unsigned int value, unsigned int cost);
 	OurList<edge> getNeighbors();
-	int getValue();
 	friend std::ostream& operator<<(std::ostream& out, const VertexL& obj);
 };
 
