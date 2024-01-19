@@ -129,6 +129,11 @@
   <ItemGroup>
     <ClCompile Include="PrimM.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Algo-Prim\Algo-Prim.vcxproj">
+      <Project>{20c6d945-dcdd-4c4c-b021-82ac4d3f98b0}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

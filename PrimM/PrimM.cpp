@@ -2,19 +2,49 @@
 //
 
 #include <iostream>
+#include <string>
+#include "../Algo-Prim/AlgoPrim.h"
 
-int main()
+using std::cout;
+using std::endl;
+using std::cerr;
+
+int main(int argc,char *argv[])
 {
-    std::cout << "Hello World!\n";
+    if (argc < 3) {
+        cerr << "Error Not Enough Arguments : The program need at least 2 arguments !" << endl;
+        return 1;
+    }
+
+    if (argc > 4) {
+        cerr << "Error Too Many Arguments : The program need only 2 to 3 arguments !" << endl;
+        return 1;
+    }
+
+    std::string fileGraph = argv[1];
+
+    try {
+        unsigned int origin = std::stoi(argv[2]);
+
+        AlgoPrim AlgoPM;
+        AlgoPM.convertFileGraphM(fileGraph);
+        AlgoPM.setOriginM(origin);
+
+        if (argc == 4) {
+            AlgoPM.executePrimForM(argv[3]);
+            cout << "The has succesfully been written in " << argv[3] << " !" << endl;
+        }
+        else {
+            AlgoPM.executePrimForM();
+        }
+    }
+    catch (const std::invalid_argument& e) {
+        std::cerr << "Invalid argument: " << e.what() << std::endl;
+        return 1;  // Return an error code
+    }
+    
+    
+
+  
+    return 0;
 }
-
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
-
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.

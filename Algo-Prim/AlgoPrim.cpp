@@ -6,6 +6,7 @@
 #include "AlgoPrim.h"
 
 #include <fstream>
+#include <chrono>
 
 edgeM AlgoPrim::minEdge(const OurList<edgeM>& edgeMList, const OurList<bool>& isInTree)
 {
@@ -32,7 +33,7 @@ void AlgoPrim::convertFileGraphM(std::string file)
 {
 	std::ifstream inputFile(file);
     if (!inputFile.is_open()) {
-        std::cerr << "convertFileGraphM Error : Can't open the file." << std::endl;
+        std::cerr << "Error File Converter : Can't open the file." << std::endl;
     }
     else {
 
@@ -74,6 +75,9 @@ void AlgoPrim::convertFileGraphM(std::string file)
 }
 void AlgoPrim::executePrimForM(std::string file)
 {
+    //Debut de l'algo
+    std::chrono::high_resolution_clock::time_point startClock = std::chrono::high_resolution_clock::now();
+
     size_t graphSize = graphM.getSize();
 
     OurList<edgeM> finalTree(graphSize);
@@ -116,10 +120,24 @@ void AlgoPrim::executePrimForM(std::string file)
 
     }
     //Complexity o(n2)
+    std::chrono::high_resolution_clock::time_point endClock = std::chrono::high_resolution_clock::now();
+    //Total time
+    std::chrono::microseconds duration = std::chrono::duration_cast<std::chrono::microseconds>(endClock - startClock);
+
+    bool isConnected = true;
+    for (size_t j = 0; j < inTree.getSize(); ++j) {
+        if (!inTree[j]) {
+            isConnected = false;
+        }
+    }
 
     if (file == "") {
         //res in console
          //(x -> p : c)
+
+        isConnected ? std::cout << "LE GRAPHE EST CONNEXE" << std::endl << std::endl : std::cout << "LE GRAPHE N'EST PAS CONNEXE" << std::endl << std::endl;
+
+        std::cout << "L'arbre couvrant a partir de : " << originM << std::endl;
 
         for (size_t i = 0; i < finalTree.getSize(); ++i) {
             if (finalTree[i].parent == 0) {
@@ -131,9 +149,35 @@ void AlgoPrim::executePrimForM(std::string file)
             
         }
 
+        std::cout << std::endl << "Temps d'execution de l'algorithme de Prim sur une matrice d'adjacence est de : " << duration.count() << " micros" << std::endl;
+
     }
     else {
-        //res in file
+        std::ofstream outputFile(file,std::ios::out);
+        if (!outputFile.is_open()) {
+            std::cerr << "Error Prim Execution : Can't open the output file." << std::endl;
+        }
+        else {
+            outputFile << "PrimM" << std::endl << std::endl;
+
+            isConnected ? outputFile << "LE GRAPHE EST CONNEXE" << std::endl << std::endl : outputFile << "LE GRAPHE N'EST PAS CONNEXE" << std::endl << std::endl;
+
+            outputFile << "L'arbre couvrant a partir de : " << originM << std::endl;
+
+            for (size_t i = 0; i < finalTree.getSize(); ++i) {
+                if (finalTree[i].parent == 0) {
+                    outputFile << "(_ -> " << finalTree[i].n_vertex << " : _)" << std::endl;
+                }
+                else {
+                    outputFile << "(" << finalTree[i].parent << " -> " << finalTree[i].n_vertex << " : " << finalTree[i].distance << ")" << std::endl;
+                }
+
+            }
+
+            outputFile << std::endl << "Temps d'execution de l'algorithme de Prim sur une matrice d'adjacence est de : " << duration.count() << " micros" << std::endl;
+
+            outputFile.close();
+        }
     }
 }
 void AlgoPrim::setOriginM(unsigned int vertex)

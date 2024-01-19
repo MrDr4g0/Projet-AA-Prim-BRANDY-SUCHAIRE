@@ -8,6 +8,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrimL", "PrimL\PrimL.vcxproj", "{DDBCCA9D-A332-43B2-98E9-33E318390EDA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrimM", "PrimM\PrimM.vcxproj", "{D20026CE-BD41-476F-9233-6F1F0EAFDB5C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{20C6D945-DCDD-4C4C-B021-82AC4D3F98B0} = {20C6D945-DCDD-4C4C-B021-82AC4D3F98B0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

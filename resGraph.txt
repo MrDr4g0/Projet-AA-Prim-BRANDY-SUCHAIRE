@@ -1,0 +1,13 @@
+PrimM
+
+LE GRAPHE EST CONNEXE
+
+L'arbre couvrant a partir de : 4
+(_ -> 4 : _)
+(4 -> 3 : 68)
+(3 -> 2 : 1)
+(3 -> 1 : 50)
+(1 -> 6 : 28)
+(6 -> 5 : 34)
+
+Temps d'execution de l'algorithme de Prim sur une matrice d'adjacence est de : 7 micros
