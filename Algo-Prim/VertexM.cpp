@@ -13,7 +13,7 @@ VertexM::VertexM(unsigned int number, const OurList<unsigned int>& n_distance) :
 {
 }
 
-OurList<unsigned int> VertexM::getNeigborsDistance() const
+OurList<unsigned int>& VertexM::getNeigborsDistance()
 {
 	return neighbors_distance;
 }

@@ -8,6 +8,10 @@ struct edgeM
 	unsigned int parent;
 	unsigned int n_vertex; // neighboring vertex
 	unsigned int distance; // distance between current vertex and the neighbor
+
+	bool operator==(const edgeM& other) const {
+		return parent == other.parent && n_vertex == other.n_vertex && distance == other.distance;
+	}
 };
 
 

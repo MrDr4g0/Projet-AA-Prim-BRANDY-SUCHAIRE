@@ -37,18 +37,18 @@ int main()
     graphM.empty() ? cout << "oui" << endl : cout << "non" << endl;
 
     AlgoPrim a;
-    a.convertFileGraphM("../graph.txt");
 
+    a.convertFileGraphM("../graph2.txt");
     graphM = a.getGraphM();
-    a.setOriginM(2);
+
+    a.setOriginM(4);
     graphM.empty() ? cout << "oui" << endl : cout << "non" << endl;
 
-    /*
-    for (size_t i = 0; i < graphM.getSize(); ++i) {
+    
+    /*for (size_t i = 0; i < graphM.getSize(); ++i) {
         cout << graphM[i] << endl;
-    }
-    */
-
+    }*/
+    
     a.executePrimForM();
 }
 
