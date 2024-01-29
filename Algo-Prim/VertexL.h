@@ -6,7 +6,7 @@ class VertexL;
 
 struct edge
 {
-	unsigned int v_cost; // neighboring vertex 
+	unsigned int v_cost; // 
 	unsigned int v_value; //  
 };
 
@@ -17,13 +17,14 @@ class VertexL
 
 public:
 	VertexL();
-	~VertexL();
 	VertexL(unsigned int number);
-	VertexL(unsigned int number, OurList<edge> neighbors);
 	VertexL(unsigned int number, const OurList<edge>& initialNeighbors);
 	void AddNeighbor(unsigned int value, unsigned int cost);
 	OurList<edge> getNeighbors();
 	friend std::ostream& operator<<(std::ostream& out, const VertexL& obj);
+	VertexL& operator=(const VertexL& other);
+	int getValue();
+	int getCost(int value);
 };
 
 

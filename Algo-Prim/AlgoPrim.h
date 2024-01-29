@@ -8,6 +8,7 @@ class AlgoPrim {
 	OurList<VertexL> graphL;
 	OurList<VertexM> graphM;
 
+
 	unsigned int originL;
 	unsigned int originM;
 
@@ -17,7 +18,7 @@ public:
 
 	void convertFileGraphM(std::string file);
 	void convertFileGraphL(std::string file);
-
+	void executePrimForL(std::string outputFile , int start);
 
 
 };

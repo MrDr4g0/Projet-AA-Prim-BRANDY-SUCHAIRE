@@ -33,6 +33,8 @@ int main(int argc, char** argv)
     //cout << matrix[0][3];
     AlgoPrim algo;
     algo.convertFileGraphL("../test.txt");
+    algo.executePrimForL("", 4);
+
     /*if (argc > 1) {
         cout << "salut" << std::endl;
         algo.convertFileGraphL(argv[1]);

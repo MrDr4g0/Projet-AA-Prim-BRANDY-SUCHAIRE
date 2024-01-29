@@ -1,20 +1,11 @@
 #include "pch.h"
 #include "VertexL.h"
 
-VertexL::VertexL()
+VertexL::VertexL() : v_number(0), v_neighbors()
 {
 }
 
-VertexL::~VertexL()
-{
-	// A MODIF
-}
-
-VertexL::VertexL(unsigned int number) : v_number(number)
-{
-}
-
-VertexL::VertexL(unsigned int number, OurList<edge> neighbors) : v_number(number), v_neighbors(neighbors)
+VertexL::VertexL(unsigned int number) : v_number(number), v_neighbors()
 {
 }
 
@@ -33,8 +24,31 @@ OurList<edge> VertexL::getNeighbors()
 	return v_neighbors;
 }
 
+VertexL& VertexL::operator=(const VertexL& other)
+{
+	if (this != &other) {
+		this->v_number = other.v_number;
+		this->v_neighbors = other.v_neighbors;
+	}
+	return *this;
+}
+
+int VertexL::getValue()
+{
+	return v_number;
+}
+
+int VertexL::getCost(int value)
+{
+	return this->getNeighbors()[0].v_cost;
+}
+
 std::ostream& operator<<(std::ostream& out, const VertexL& obj)
 {
 	out << obj.v_number << std::endl;
+	for (int i = 0; i < obj.v_neighbors.getSize(); i++) {
+		out << "Valeur : " << obj.v_neighbors[i].v_value << std::endl;
+		out << "Cout : " << obj.v_neighbors[i].v_cost << std::endl;
+	}
 	return out;
 }

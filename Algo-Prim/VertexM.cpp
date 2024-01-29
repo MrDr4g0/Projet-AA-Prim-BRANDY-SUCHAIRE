@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "VertexM.h"
 
-VertexM::VertexM()
+VertexM::VertexM() : v_number(0)
 {
 }
 
