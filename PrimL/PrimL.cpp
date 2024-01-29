@@ -34,20 +34,20 @@ int main()
 
     OurList<VertexM> graphM(2);
 
-    graphM.empty() ? cout << "oui" << endl : cout << "non" << endl;
+    //graphM.empty() ? cout << "oui" << endl : cout << "non" << endl;
 
     AlgoPrim a;
 
-    a.convertFileGraphM("../graph2.txt");
+    a.convertFileGraphM("../graph.txt");
+
     graphM = a.getGraphM();
 
-    a.setOriginM(4);
-    graphM.empty() ? cout << "oui" << endl : cout << "non" << endl;
-
-    
-    /*for (size_t i = 0; i < graphM.getSize(); ++i) {
+    for (size_t i = 0; i < graphM.getSize(); ++i) {
         cout << graphM[i] << endl;
-    }*/
+    }
+
+    a.setOriginM(2);
+    //graphM.empty() ? cout << "oui" << endl : cout << "non" << endl;
     
     a.executePrimForM();
 }
