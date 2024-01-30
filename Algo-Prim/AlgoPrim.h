@@ -20,7 +20,7 @@ class AlgoPrim {
 	OurList<VertexL> graphL;
 	OurList<VertexM> graphM;
 
-	VertexL originL;
+	unsigned int originL;
 	unsigned int originM;
 
 	edgeM minEdge(const OurList<edgeM>& edgeMList, const OurList<bool>& isInTree);
@@ -32,7 +32,9 @@ public:
 	void convertFileGraphM(std::string file);
 	void convertFileGraphL(std::string file);
 
+	void executePrimForL(std::string outputFile, int start);
 	void executePrimForM(std::string file = "");
+
 	void setOriginM(unsigned int vertex);
 
 	OurList<VertexM> getGraphM();
