@@ -6,6 +6,8 @@
 #include "AlgoPrim.h"
 #include <iostream>
 #include <fstream>
+#include <chrono>
+
 
 AlgoPrim::AlgoPrim() : graphL(0), graphM(0),originL(0), originM(0)
 {
@@ -71,20 +73,18 @@ void AlgoPrim::convertFileGraphL(std::string file)
             for (int j = 0; j < graph.getSize(); j++) {
                 VertexL cvertex = graph[j];
                 cvertex.getValue();
-                OurList neigbhorss = cvertex.getNeighbors();
+                OurList<edge> neigbhorss = cvertex.getNeighbors();
             }
         }
 
         graphL = graph;
-
-        // TEST
-        /*for (int i = 0; i < graphL.getSize(); i++) {
-            std::cout <<graphL[i]<<std::endl;
-        }*/
     }
 }
 void AlgoPrim::executePrimForL(std::string outputFile , int start)
 {    
+    // Start algo
+    std::chrono::high_resolution_clock::time_point startClock = std::chrono::high_resolution_clock::now();
+
     // Collect size of graph
     size_t graphSize = graphL.getSize();
 
@@ -93,9 +93,6 @@ void AlgoPrim::executePrimForL(std::string outputFile , int start)
 
     // create tree of visited vertex
     OurList<bool> inTree(graphSize, false);
-
-    // create an attribut for check if is connexe
-    bool isConnex = true;
 
     // I choose my start point
     for (int i = 0; i < graphSize; i++) {
@@ -142,27 +139,71 @@ void AlgoPrim::executePrimForL(std::string outputFile , int start)
 
                     inTree[child - 1] = true;
                 }
-                else {
-                    // Dire que c'est pas connexe
-                    isConnex = false;
-                }
             }
-            
-            for (int i = 0; i < finalTree.getSize(); i++) {
-                std::cout << finalTree[i] << std::endl;
-            }
-
             break;
         }
     }
+    // End algo
+    std::chrono::high_resolution_clock::time_point endClock = std::chrono::high_resolution_clock::now();
 
-    // print my final tree
-    for (size_t i = 0; i < finalTree.getSize(); i++) {
-        if (i == 0) {
-            std::cout << "(" << finalTree[i].getValue() << " -> _ : _)" << std::endl;
+    // Total time
+    std::chrono::microseconds duration = std::chrono::duration_cast<std::chrono::microseconds>(endClock - startClock);
+
+    
+    // If the user want to write in a file
+    std::ofstream output(outputFile, std::ios::out);
+
+    // Check if graph is connexe 
+    bool isConnex = true;
+    for (int i = 0; i < inTree.getSize(); i++) {
+        if (inTree[i] == false) {
+            isConnex = false;
         }
-        else if(i > 0){
-            std::cout << "(" << finalTree[i].getValue() << " -> " << finalTree[i].getNeighbors()[0].v_value << " : " << finalTree[i].getCost(finalTree[i].getValue()) << ")" << std::endl;
+    }
+
+    // If its not specified
+    if (outputFile == "")
+    {
+        // Check if its connexe
+        isConnex ? std::cout << "LE GRAPHE EST CONNEXE" << std::endl << std::endl : std::cout << "LE GRAPHE N'EST PAS CONNEXE" << std::endl << std::endl;
+
+        // print start point
+        std::cout << "L'arbre couvrant a partir de : " << start << std::endl;
+
+        // print my final tree
+        for (size_t i = 0; i < finalTree.getSize(); i++) {
+            if (i == 0) {
+                std::cout << "(" << finalTree[i].getValue() << " -> _ : _)" << std::endl;
+            }
+            else if (i > 0) {
+                std::cout << "(" << finalTree[i].getValue() << " -> " << finalTree[i].getNeighbors()[0].v_value << " : " << finalTree[i].getCost(finalTree[i].getValue()) << ")" << std::endl;
+            }
         }
+
+        std::cout << std::endl << "Temps d'execution de l'algorithme de Prim sur les listes d'adjacence est de : " << duration.count() << " micros" << std::endl;
+
+    }
+    else {
+        // Check if its connexe
+        isConnex ? output << "LE GRAPHE EST CONNEXE" << std::endl << std::endl : output << "LE GRAPHE N'EST PAS CONNEXE" << std::endl << std::endl;
+
+        // print start point
+        output << "L'arbre couvrant a partir de : " << start << std::endl;
+
+        // Write in the final tree
+        for (size_t i = 0; i < finalTree.getSize(); i++) {
+            if (i == 0) {
+                output << "(" << finalTree[i].getValue() << " -> _ : _)" << std::endl;
+            }
+            else if (i > 0) {
+                output << "(" << finalTree[i].getValue() << " -> " << finalTree[i].getNeighbors()[0].v_value << " : " << finalTree[i].getCost(finalTree[i].getValue()) << ")" << std::endl;
+            }
+        }
+
+        // Write execution time 
+        output << std::endl << "Temps d'execution de l'algorithme de Prim sur les listes d'adjacence est de : " << duration.count() << " micros" << std::endl;
+        output.close();
+
+
     }
 };
