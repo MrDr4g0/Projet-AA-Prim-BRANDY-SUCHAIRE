@@ -32,7 +32,7 @@ public:
 	void convertFileGraphM(std::string file);
 	void convertFileGraphL(std::string file);
 
-	void executePrimForL(std::string outputFile, int start);
+	void executePrimForL(std::string outputFile,int start);
 	void executePrimForM(std::string file = "");
 
 	void setOriginM(unsigned int vertex);

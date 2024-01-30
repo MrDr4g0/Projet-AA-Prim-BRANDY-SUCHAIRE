@@ -22,6 +22,6 @@ public:
 	OurList<edge> getNeighbors();
 	friend std::ostream& operator<<(std::ostream& out, const VertexL& obj);
 	VertexL& operator=(const VertexL& other);
-	int getValue();
+	unsigned int getValue();
 	int getCost(int value);
 };

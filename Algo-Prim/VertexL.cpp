@@ -33,7 +33,7 @@ VertexL& VertexL::operator=(const VertexL& other)
 	return *this;
 }
 
-int VertexL::getValue()
+unsigned int VertexL::getValue()
 {
 	return v_number;
 }
@@ -46,7 +46,7 @@ int VertexL::getCost(int value)
 std::ostream& operator<<(std::ostream& out, const VertexL& obj)
 {
 	out << obj.v_number << std::endl;
-	for (int i = 0; i < obj.v_neighbors.getSize(); i++) {
+	for (size_t i = 0; i < obj.v_neighbors.getSize(); i++) {
 		out << "Valeur : " << obj.v_neighbors[i].v_value << std::endl;
 		out << "Cout : " << obj.v_neighbors[i].v_cost << std::endl;
 	}

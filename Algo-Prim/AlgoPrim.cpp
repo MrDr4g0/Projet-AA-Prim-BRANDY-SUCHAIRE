@@ -71,7 +71,7 @@ void AlgoPrim::convertFileGraphL(std::string file)
                 neigbhors.insert_back(neighbor);
 
                 // 
-                for (int i = 0; i < graph.getSize(); i++) {
+                for (size_t i = 0; i < graph.getSize(); i++) {
                     if (graph[i].getValue() == neighborVertex) {
                         graph[i].AddNeighbor(vertexNumber, distance);
                     }
@@ -85,7 +85,7 @@ void AlgoPrim::convertFileGraphL(std::string file)
             // Add Vertex
             graph.insert_back(vertex);
 
-            for (int j = 0; j < graph.getSize(); j++) {
+            for (size_t j = 0; j < graph.getSize(); j++) {
                 VertexL cvertex = graph[j];
                 cvertex.getValue();
                 OurList<edge> neigbhorss = cvertex.getNeighbors();
@@ -96,7 +96,7 @@ void AlgoPrim::convertFileGraphL(std::string file)
     }
 }
 
-void AlgoPrim::executePrimForL(std::string outputFile, int start)
+void AlgoPrim::executePrimForL(std::string outputFile,int start)
 {
     // Start algo
     std::chrono::high_resolution_clock::time_point startClock = std::chrono::high_resolution_clock::now();
@@ -111,7 +111,7 @@ void AlgoPrim::executePrimForL(std::string outputFile, int start)
     OurList<bool> inTree(graphSize, false);
 
     // I choose my start point
-    for (int i = 0; i < graphSize; i++) {
+    for (size_t i = 0; i < graphSize; i++) {
         if (start == graphL[i].getValue()) // My vertex exist
         {
             inTree[i] = true; // set start to visited 
@@ -123,12 +123,12 @@ void AlgoPrim::executePrimForL(std::string outputFile, int start)
             unsigned int child;
 
             // graphSize is the number of steps of the algorithm
-            for (int j = 0; j < graphSize; j++) {
+            for (size_t j = 0; j < graphSize; j++) {
                 lesscost = UINT_MAX;
                 // check each vertex of the tree
-                for (int k = 0; k < finalTree.getSize(); k++) {
+                for (size_t k = 0; k < finalTree.getSize(); k++) {
                     // for each neighbors
-                    for (int l = 0; l < graphL[finalTree[k].getValue() - 1].getNeighbors().getSize(); l++) {
+                    for (size_t l = 0; l < graphL[finalTree[k].getValue() - 1].getNeighbors().getSize(); l++) {
                         //Verify the most less cost and also if its not visited
                         if (graphL[finalTree[k].getValue() - 1].getNeighbors()[l].v_cost < lesscost && !inTree[graphL[finalTree[k].getValue() - 1].getNeighbors()[l].v_value - 1]) {
                             lesscost = graphL[finalTree[k].getValue() - 1].getNeighbors()[l].v_cost;
@@ -145,7 +145,7 @@ void AlgoPrim::executePrimForL(std::string outputFile, int start)
 
                     newVertex.AddNeighbor(father, lesscost);
 
-                    for (int i = 0; i < finalTree.getSize(); i++) {
+                    for (size_t i = 0; i < finalTree.getSize(); i++) {
                         if (finalTree[i].getValue() == father) {
                             finalTree[i].AddNeighbor(child, lesscost);
                         }
@@ -171,7 +171,7 @@ void AlgoPrim::executePrimForL(std::string outputFile, int start)
 
     // Check if graph is connexe 
     bool isConnex = true;
-    for (int i = 0; i < inTree.getSize(); i++) {
+    for (size_t i = 0; i < inTree.getSize(); i++) {
         if (inTree[i] == false) {
             isConnex = false;
         }
