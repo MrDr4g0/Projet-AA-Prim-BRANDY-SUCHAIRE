@@ -8,20 +8,10 @@
 using std::cout;
 using std::endl;
 
-int main() {
-    
-    AlgoPrim algo;
-    algo.convertFileGraphL("../graph3.txt");
-    algo.executePrimForL("", 2);
 
-}
-
-/*
 int main(int argc, char** argv)
 {
     AlgoPrim algo;
-      algo.convertFileGraphL("../test.txt");
-      algo.executePrimForL("", 4);
 
     bool isValid = false;
 
@@ -44,4 +34,3 @@ int main(int argc, char** argv)
         }
     }
 }
-*/

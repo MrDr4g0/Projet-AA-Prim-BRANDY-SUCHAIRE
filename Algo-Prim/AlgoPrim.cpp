@@ -118,56 +118,6 @@ void AlgoPrim::executePrimForL(std::string outputFile,unsigned int start)
     bool isDone = false;
 
     // I choose my start point
-    /*
-    for (size_t i = 0; i < graphSize; i++) {
-        if (start == graphL[i].getValue()) // My vertex exist
-        {
-            inTree[i] = true; // set start to visited 
-
-            finalTree.insert_back(graphL[i].getValue()); // add the start to the final Tree
-
-            unsigned int lesscost;
-            unsigned int father;
-            unsigned int child;
-
-            // graphSize is the number of steps of the algorithm
-            for (size_t j = 0; j < graphSize; j++) {
-                lesscost = UINT_MAX;
-                // check each vertex of the tree
-                for (size_t k = 0; k < finalTree.getSize(); k++) {
-                    // for each neighbors
-                    for (size_t l = 0; l < graphL[finalTree[k].getValue() - 1].getNeighbors().getSize(); l++) {
-                        //Verify the most less cost and also if its not visited
-                        if (graphL[finalTree[k].getValue() - 1].getNeighbors()[l].v_cost < lesscost && !inTree[graphL[finalTree[k].getValue() - 1].getNeighbors()[l].v_value - 1]) {
-                            lesscost = graphL[finalTree[k].getValue() - 1].getNeighbors()[l].v_cost;
-                            child = graphL[finalTree[k].getValue() - 1].getNeighbors()[l].v_value;
-
-                            father = graphL[finalTree[k].getValue() - 1].getValue();
-                        }
-                    }
-                }
-
-                if (lesscost != UINT_MAX) {
-                    // add the next vertex and the edgeL
-                    VertexL newVertex(child);
-
-                    newVertex.AddNeighbor(father, lesscost);
-
-                    for (size_t i = 0; i < finalTree.getSize(); i++) {
-                        if (finalTree[i].getValue() == father) {
-                            finalTree[i].AddNeighbor(child, lesscost);
-                        }
-                    }
-
-                    finalTree.insert_back(newVertex);
-
-                    inTree[child - 1] = true;
-                }
-            }
-            break;
-        }
-    }
-    */
 
     edge originTree = { 0,start,0 };
     inTree[start - 1] = true;
