@@ -3,23 +3,23 @@
 
 class VertexL;
 
-struct edge
+struct edgeL
 {
-	unsigned int v_cost; // 
-	unsigned int v_value; //  
+	unsigned int v_cost; // dist
+	unsigned int v_value; //  neigh
 };
 
 class VertexL
 {
 	unsigned int v_number;
-	OurList<edge> v_neighbors; // adjacence list
+	OurList<edgeL> v_neighbors; // adjacence list
 
 public:
 	VertexL();
 	VertexL(unsigned int number);
-	VertexL(unsigned int number, const OurList<edge>& initialNeighbors);
+	VertexL(unsigned int number, const OurList<edgeL>& initialNeighbors);
 	void AddNeighbor(unsigned int value, unsigned int cost);
-	OurList<edge> getNeighbors();
+	OurList<edgeL> getNeighbors();
 	friend std::ostream& operator<<(std::ostream& out, const VertexL& obj);
 	VertexL& operator=(const VertexL& other);
 	unsigned int getValue();

@@ -3,13 +3,13 @@
 #include "VertexL.h"
 #include "VertexM.h"
 
-struct edgeM
+struct edge
 {
 	unsigned int parent;
 	unsigned int n_vertex; // neighboring vertex
 	unsigned int distance; // distance between current vertex and the neighbor
 
-	bool operator==(const edgeM& other) const {
+	bool operator==(const edge& other) const {
 		return parent == other.parent && n_vertex == other.n_vertex && distance == other.distance;
 	}
 };
@@ -23,7 +23,7 @@ class AlgoPrim {
 	unsigned int originL;
 	unsigned int originM;
 
-	edgeM minEdge(const OurList<edgeM>& edgeMList, const OurList<bool>& isInTree);
+	edge minEdge(const OurList<edge>& edgeList, const OurList<bool>& isInTree);
 
 public:
 
@@ -32,7 +32,7 @@ public:
 	void convertFileGraphM(std::string file);
 	void convertFileGraphL(std::string file);
 
-	void executePrimForL(std::string outputFile,int start);
+	void executePrimForL(std::string outputFile,unsigned int start);
 	void executePrimForM(std::string file = "");
 
 	void setOriginM(unsigned int vertex);
